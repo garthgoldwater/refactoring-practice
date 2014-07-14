@@ -4,8 +4,7 @@ class HandClassifier
     @rank = classify
   end
 
-  attr_reader :hand
-  attr_accessor :rank
+  attr_reader :hand, :rank
 
   def classify
     if straight_flush?

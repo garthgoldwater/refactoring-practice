@@ -7,8 +7,7 @@ class Hand
     @rank = HandRanker.new(self).rank
   end
 
-  attr_accessor :rank
-  attr_accessor :cards
+  attr_reader :rank, :cards
 
   def to_s
     @cards.join("\n")
@@ -17,7 +16,4 @@ class Hand
   def <=>(other_hand)
     rank <=> other_hand.rank
   end
-
-
-
 end

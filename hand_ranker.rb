@@ -17,16 +17,10 @@ class HandRanker
     @rank = rank_hand
   end
 
-  attr_accessor :hand, :rank
+  attr_reader :hand, :rank
 
   def <=>(other_hand)
-    if rank > other_hand.rank || rank < other_hand.rank
       rank <=> other_hand.rank
-    else
-      # TieBreaker.new(hand, other_hand)
-     puts "tiebreaker functionality does not exist yet. All players have been exterminated"
-     0
-    end
   end
 
   private
