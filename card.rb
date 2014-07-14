@@ -1,16 +1,16 @@
 class Card
   def initialize(value, suit)
     @value = value
-    @suit = suit_initializer(suit)
+    @suit = suit
   end
 
   def to_s
-    value_str << @suit
+    "#{value_string}#{@suit}"
   end
 
   private
 
-  def value_str
+  def value_string
     if @value <= 10
       @value.to_s
     else
@@ -28,19 +28,6 @@ class Card
       "K"
     when 14
       "A"
-    end
-  end
-
-  def suit_initializer(suit)
-    case suit
-    when 1
-      "H"
-    when 2
-      "D"
-    when 3
-      "S"
-    when 4
-      "C"
     end
   end
 end

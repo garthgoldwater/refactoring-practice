@@ -15,7 +15,9 @@ class Poker
 
   def deal_hands
     hands = []
-    hands = @number_of_players.times.map(@deck.deal_hand)
+    hands = @number_of_players.times.map do |_|
+      @deck.deal_hand
+    end
     hands
   end
 

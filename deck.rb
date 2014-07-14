@@ -1,5 +1,9 @@
 require "./hand"
 class Deck
+  VALUE_LIST = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+  SUIT_LIST = ["H", "D", "S", "C"]
+  CARDS_PER_HAND = 5
+
   def initialize
     @cards = populate_deck
     @cards.shuffle!
@@ -7,7 +11,7 @@ class Deck
 
   def deal_hand
     dealt_cards = []
-    5.times { dealt_cards << @cards.pop }
+    CARDS_PER_HAND.times { dealt_cards << @cards.pop }
     Hand.new(dealt_cards)
   end
 
@@ -15,8 +19,8 @@ class Deck
 
   def populate_deck
     cards = []
-    2.upto(14) do |value|
-      1.upto(4) do |suit|
+    VALUE_LIST.each do |value|
+      SUIT_LIST.each do |suit|
         cards << Card.new(value, suit)
       end
     end
