@@ -18,13 +18,16 @@ class Poker
   end
 
   def display_hands
+    puts "Hands ranked highest to lowest"
+    @hands.sort!.reverse!
     @hands.each_with_index do |hand, index|
       puts "Player #{index + 1}:"
       puts hand
+      puts hand.rank
       puts
     end
   end
 end
 
-poker = Poker.new(4)
+poker = Poker.new(6)
 poker.play
