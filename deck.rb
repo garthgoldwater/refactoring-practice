@@ -19,12 +19,10 @@ class Deck
   private
 
   def populate_deck
-    cards = []
     VALUES.flat_map do |value|
       SUITS.map do |suit|
         Card.new(value, suit)
       end
     end
-    cards
   end
 end
