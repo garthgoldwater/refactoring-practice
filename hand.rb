@@ -5,8 +5,6 @@ class Hand
   end
 
   def to_s
-    display_hand = ""
-    @cards.each { |card| display_hand << card.to_s << "\n" }
-    display_hand
+    @cards.join("\n")
   end
 end

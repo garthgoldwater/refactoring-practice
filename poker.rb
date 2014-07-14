@@ -15,19 +15,18 @@ class Poker
 
   def deal_hands
     hands = []
-    @number_of_players.times { hands << @deck.deal_hand }
+    hands = @number_of_players.times.map(@deck.deal_hand)
     hands
   end
 
   def display_hands
     @hands.each_with_index do |hand, index|
-      puts "Player #{index+1}:"
+      puts "Player #{index + 1}:"
       puts hand
-      puts ""
+      puts
     end
   end
 end
 
 poker = Poker.new(4)
 poker.play
-
