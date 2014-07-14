@@ -11,9 +11,7 @@ class Deck
   end
 
   def deal_hand
-    dealt_cards = []
-    dealt_cards << @cards.shift(CARDS_PER_HAND)
-    Hand.new(dealt_cards)
+    Hand.new(@cards.shift(CARDS_PER_HAND))
   end
 
   private
