@@ -1,7 +1,8 @@
 require "./hand"
+
 class Deck
-  VALUE_LIST = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-  SUIT_LIST = ["H", "D", "S", "C"]
+  VALUES = (2..14).to_a
+  SUITS = %w(H D S C)
   CARDS_PER_HAND = 5
 
   def initialize
@@ -11,7 +12,7 @@ class Deck
 
   def deal_hand
     dealt_cards = []
-    CARDS_PER_HAND.times { dealt_cards << @cards.pop }
+    dealt_cards << @cards.shift(CARDS_PER_HAND)
     Hand.new(dealt_cards)
   end
 
@@ -19,9 +20,9 @@ class Deck
 
   def populate_deck
     cards = []
-    VALUE_LIST.each do |value|
-      SUIT_LIST.each do |suit|
-        cards << Card.new(value, suit)
+    VALUES.flat_map do |value|
+      SUITS.map do |suit|
+        Card.new(value, suit)
       end
     end
     cards

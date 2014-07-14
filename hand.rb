@@ -1,4 +1,5 @@
 require "./card"
+
 class Hand
   def initialize(cards)
     @cards = cards

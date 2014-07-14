@@ -14,9 +14,7 @@ class Poker
   private
 
   def deal_hands
-    hands = []
-    hands = @number_of_players.times.map { @deck.deal_hand }
-    hands
+    @number_of_players.times.map { @deck.deal_hand }
   end
 
   def display_hands
