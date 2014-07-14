@@ -21,7 +21,6 @@ class Card
 
   private
 
-
   def face_value
     if NAMED_RANKS.key?(value)
       NAMED_RANKS[value]
