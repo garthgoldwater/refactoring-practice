@@ -13,28 +13,20 @@ class Card
     @suit = suit
   end
 
-  attr_reader :suit
-  attr_reader :value
+  attr_reader :suit, :value
 
   def to_s
-  "#{value_string} #{suit}"
+    "#{face_value} #{suit}"
   end
 
   private
 
-  def value_string
-    if value < 10
-      value.to_s
-    else
-      face_value
-    end
-  end
 
   def face_value
     if NAMED_RANKS.key?(value)
       NAMED_RANKS[value]
     else
-      value
+      value.to_s
     end
   end
 end
