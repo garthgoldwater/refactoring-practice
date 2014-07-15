@@ -1,4 +1,5 @@
 require "./game_loop"
+
 class RockPaperScissors
   def play
     display_welcome

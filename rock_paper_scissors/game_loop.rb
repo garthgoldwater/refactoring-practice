@@ -4,7 +4,7 @@ class GameLoop
   QUIT_COMMAND = "q"
   LEGAL_INPUT = Round::LEGAL_MOVES << QUIT_COMMAND
 
-  attr_accessor :player_input
+  attr_reader :player_input
 
   def run
     loop do
@@ -17,6 +17,8 @@ class GameLoop
   end
 
   private
+  
+  attr_writer :player_input
 
   def prompt_player
     self.player_input = ""

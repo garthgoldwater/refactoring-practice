@@ -3,7 +3,7 @@ require "./game_outcome"
 class Round
   LEGAL_MOVES = %w(r p s)
 
-  attr_accessor :ai_move, :player_move, :winner
+  attr_reader :ai_move, :player_move, :winner
 
   def initialize(player_move)
     @player_move = player_move
@@ -16,6 +16,8 @@ class Round
   end
 
   private
+
+  attr_writer :ai_move, :player_move, :winner
 
   def generate_ai_move
     @ai_move = LEGAL_MOVES.sample
