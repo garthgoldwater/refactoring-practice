@@ -1,8 +1,8 @@
 require "./round"
+
 class GameLoop
-  PROMPT = "Your move: "
-  LEGAL_INPUT = %w(r p s q)
   QUIT_COMMAND = "q"
+  LEGAL_INPUT = Round::LEGAL_MOVES << QUIT_COMMAND
 
   attr_accessor :player_input
 
@@ -18,16 +18,16 @@ class GameLoop
 
   private
 
+  def prompt_player
+    self.player_input = ""
+    while !LEGAL_INPUT.include?(player_input)
+      print "Your move: "
+      self.player_input = gets.chomp.downcase
+    end
+  end
+
   def play_round
     round = Round.new(player_input)
     round.play
-    self.player_input = ""
-  end
-
-  def prompt_player
-    while !LEGAL_INPUT.include?(player_input)
-      print PROMPT
-      self.player_input = gets.chomp.downcase
-    end
   end
 end

@@ -10,21 +10,15 @@ class Round
   end
 
   def play
-      generate_ai_move
-      determine_winner
-      puts result
-  end
-
-  def result
+    generate_ai_move
+    determine_winner
     puts "the winner is #{winner}"
   end
 
   private
 
-
   def generate_ai_move
-    @ai_move = %w(r p s).sample
-    puts "ai move: #{self.ai_move}"
+    @ai_move = LEGAL_MOVES.sample
   end
 
   def determine_winner
