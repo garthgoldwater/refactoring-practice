@@ -1,15 +1,15 @@
 require "./hand_classifier"
 class HandRanker
   HAND_RANKS = {
-    :straight_flush => 9,
-    :four_of_a_kind => 8,
-    :full_house => 7,
-    :flush => 6,
-    :straight => 5,
-    :three_of_a_kind => 4,
-    :two_pair => 3,
-    :one_pair => 2,
-    :high_card => 1
+    straight_flush: 9,
+    four_of_a_kind: 8,
+    full_house: 7,
+    flush: 6,
+    straight: 5,
+    three_of_a_kind: 4,
+    two_pair: 3,
+    one_pair: 2,
+    high_card: 1
   }
 
   def initialize(hand)
@@ -26,6 +26,6 @@ class HandRanker
   private
 
   def rank_hand
-    HAND_RANKS[HandClassifier.new(hand).rank]
+    HAND_RANKS[HandClassifier.new(hand).classify]
   end
 end

@@ -1,7 +1,6 @@
 class HandClassifier
   def initialize(hand)
     @hand = hand
-    @rank = classify
   end
 
   attr_reader :hand, :rank
@@ -27,6 +26,8 @@ class HandClassifier
       :high_card
     end
   end
+  
+  private
 
   def straight_flush?
     straight? && flush?
@@ -42,7 +43,6 @@ class HandClassifier
       group.length == 2
     end
     full_house && grouped_hand.any?{ |group| group.length == 3 }
-
   end
 
   def flush?
@@ -78,7 +78,7 @@ class HandClassifier
   end
 
   def find_pairings?(length)
-    !find_matches.select { |number, group| group.length == length }.empty?
+    find_pairings(length).empty?
   end
 
   def find_pairings(length)
