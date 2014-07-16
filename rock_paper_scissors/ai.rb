@@ -1,7 +1,7 @@
 require "./ai_move"
 class Ai
 
-  attr_accessor :strategy
+  attr_reader :strategy
 
   def initialize(strategy)
     @strategy = strategy 
