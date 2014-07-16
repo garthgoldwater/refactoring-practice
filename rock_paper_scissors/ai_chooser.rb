@@ -12,8 +12,8 @@ class AiChooser
   private
 
   AI_ABBREVIATIONS = {
-    "c" => :cheater
-    "l" => :loser
+    "c" => :cheater,
+    "l" => :loser,
     "r" => :random
   }
 
