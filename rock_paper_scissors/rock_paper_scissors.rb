@@ -3,7 +3,7 @@ require "./ai_chooser"
 
 class RockPaperScissors
   def play
-    ai = Ai.new
+    ai = Ai.new(AiChooser.new.choose)
     display_welcome
     GameLoop.new(ai).run
   end

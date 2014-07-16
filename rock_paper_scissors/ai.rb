@@ -3,8 +3,8 @@ class Ai
 
   attr_accessor :strategy
 
-  def initialize
-    @strategy = AiChooser.new.choose
+  def initialize(strategy)
+    @strategy = strategy 
   end
 
   def generate_move(player_move)
