@@ -5,6 +5,10 @@ class GameLoop
   LEGAL_INPUT = Round::LEGAL_MOVES << QUIT_COMMAND
 
   attr_reader :player_input
+  
+  def initialize(ai)
+    @ai = ai
+  end
 
   def run
     loop do
@@ -18,7 +22,8 @@ class GameLoop
 
   private
   
-  attr_writer :player_input
+  attr_accessor :player_input
+  attr_reader :ai
 
   def prompt_player
     self.player_input = ""
@@ -29,7 +34,7 @@ class GameLoop
   end
 
   def play_round
-    round = Round.new(player_input)
+    round = Round.new(player_input, ai)
     round.play
   end
 end
