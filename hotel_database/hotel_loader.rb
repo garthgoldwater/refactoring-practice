@@ -15,8 +15,9 @@ class HotelLoader
   private
 
   def load_hotels(filename_of_hotel_csv)
-    CSV.foreach(filename_of_hotel_csv, headers: true) do |hotel|
-      @hotels[hotel["Hotel"].strip] = hotel
+    CSV.foreach(filename_of_hotel_csv, headers: true) do |row|
+      hotel_name = row["Hotel"].strip
+      @hotels[hotel_name] = row
     end
   end
 end
