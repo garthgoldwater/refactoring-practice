@@ -3,14 +3,20 @@ require "csv"
 class HotelLoader
   def initialize(filename_of_hotel_csv="hotels.csv")
     @hotels = {}
-    CSV.foreach(filename_of_hotel_csv, headers: true) do |hotel|
-      @hotels[hotel["Hotel"].strip] = hotel
-    end
+    load_hotels(filename_of_hotel_csv)
   end
 
   def print_hotels
     @hotels.keys.each do |hotel_name|
       puts hotel_name
+    end
+  end
+
+  private
+
+  def load_hotels(filename_of_hotel_csv)
+    CSV.foreach(filename_of_hotel_csv, headers: true) do |hotel|
+      @hotels[hotel["Hotel"].strip] = hotel
     end
   end
 end
