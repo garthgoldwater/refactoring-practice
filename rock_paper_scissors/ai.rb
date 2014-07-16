@@ -5,18 +5,13 @@ class Ai
     "r" => "p"
   }
 
-  MOVES_THAT_WILL_LOSE_TO = {
-    "r" => "s",
-    "p" => "r",
-    "s" => "p"
-  }
+  MOVES_THAT_WILL_LOSE_TO = MOVES_THAT_WILL_BEAT.invert
 
   attr_accessor :player_move, :strategy
 
   def initialize
     @strategy = AiChooser.new.choose
   end
-
 
   def generate_move(player_move)
     self.player_move = player_move
@@ -43,5 +38,4 @@ class Ai
   def generate_random
     Round::LEGAL_MOVES.sample
   end
-
 end

@@ -13,7 +13,6 @@ class RockPaperScissors
     puts "Enter r, p, or s to play."
     puts "Enter q to quit"
   end
-
 end
 
 rock_paper_scissors = RockPaperScissors.new

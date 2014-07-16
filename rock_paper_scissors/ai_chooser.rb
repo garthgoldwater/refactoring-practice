@@ -11,6 +11,12 @@ class AiChooser
 
   private
 
+  AI_ABBREVIATIONS = {
+    "c" => :cheater
+    "l" => :loser
+    "r" => :random
+  }
+
   attr_accessor :player_input
 
 
@@ -28,12 +34,6 @@ class AiChooser
   end
 
   def parse_player_input
-    if player_input == "c"
-      :cheater
-    elsif player_input == "l"
-      :loser
-    else
-      :random
-    end
+    AI_ABBREVIATIONS[player_input]
   end
 end
