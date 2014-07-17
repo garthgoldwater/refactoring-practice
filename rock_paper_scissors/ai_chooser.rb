@@ -13,12 +13,10 @@ class AiChooser
 
   private
 
-  LEGAL_INPUT = %w(c l r)
-
   AI_STRATEGY_ABBREVIATIONS = {
-    "c" => :cheater,
-    "l" => :loser,
-    "r" => :random
+    "c" => CheaterAi,
+    "l" => LoserAi,
+    "r" => RandomAi
   }
 
   attr_accessor :player_input
@@ -29,7 +27,7 @@ class AiChooser
   end
 
   def get_valid_input_from_player
-    while !LEGAL_INPUT.include?(player_input)
+    while !AI_STRATEGY_ABBREVIATIONS.keys.include?(player_input)
       print "Your choice: "
       self.player_input = gets.chomp.downcase
     end
@@ -37,6 +35,6 @@ class AiChooser
 
   def generate_ai
     strategy = AI_STRATEGY_ABBREVIATIONS[player_input]
-    Ai_Generator.new.generate(strategy)
+    strategy.new
   end
 end

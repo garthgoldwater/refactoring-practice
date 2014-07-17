@@ -2,7 +2,7 @@ require "./cheater_ai"
 require "./loser_ai"
 require "./random_ai"
 
-class Ai_Generator
+class AiGenerator
   def generate(strategy)
     case strategy
     when :cheater
