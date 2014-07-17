@@ -1,5 +1,3 @@
-require "./ai_generator"
-
 class AiChooser
   def initialize
     @player_input = ""
