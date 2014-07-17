@@ -3,26 +3,26 @@ require "./game_outcome"
 class Round
   LEGAL_MOVES = %w(r p s)
 
-  attr_reader :ai_move, :player_move, :winner
+  attr_reader :ai_move, :player_move
 
   def initialize(player_move, ai)
     @player_move = player_move
     @ai = ai
+    @ai_move = generate_ai_move
   end
 
   def play
-    generate_ai_move
     determine_winner
     display_results
   end
 
   private
 
-  attr_writer :ai_move, :player_move, :winner
-  attr_reader :ai
+  attr_writer :winner
+  attr_reader  :winner, :ai
 
   def generate_ai_move
-    self.ai_move = ai.generate_move(player_move)
+    ai.move(player_move)
   end
 
   def determine_winner

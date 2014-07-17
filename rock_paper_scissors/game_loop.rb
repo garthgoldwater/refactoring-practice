@@ -5,7 +5,7 @@ class GameLoop
   LEGAL_INPUT = Round::LEGAL_MOVES << QUIT_COMMAND
 
   attr_reader :player_input
-  
+
   def initialize(ai)
     @ai = ai
   end
@@ -21,8 +21,8 @@ class GameLoop
   end
 
   private
-  
-  attr_accessor :player_input
+
+  attr_writer :player_input
   attr_reader :ai
 
   def prompt_player

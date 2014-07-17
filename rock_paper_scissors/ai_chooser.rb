@@ -1,21 +1,21 @@
-require "./ai"
+require "./ai_generator"
 
 class AiChooser
-  LEGAL_INPUT = %w(c l r)
-
   def initialize
     @player_input = ""
   end
 
   def choose
     display_prompt_for_ai_type
-    get_ai_type_from_player
-    parse_player_input
+    get_valid_input_from_player
+    generate_ai
   end
 
   private
 
-  AI_ABBREVIATIONS = {
+  LEGAL_INPUT = %w(c l r)
+
+  AI_STRATEGY_ABBREVIATIONS = {
     "c" => :cheater,
     "l" => :loser,
     "r" => :random
@@ -28,10 +28,6 @@ class AiChooser
     puts "Enter c for cheater, l for loser, or r for random ai"
   end
 
-  def get_ai_type_from_player
-    get_valid_input_from_player
-  end
-
   def get_valid_input_from_player
     while !LEGAL_INPUT.include?(player_input)
       print "Your choice: "
@@ -39,7 +35,8 @@ class AiChooser
     end
   end
 
-  def parse_player_input
-    AI_ABBREVIATIONS[player_input]
+  def generate_ai
+    strategy = AI_STRATEGY_ABBREVIATIONS[player_input]
+    Ai_Generator.new.generate(strategy)
   end
 end
